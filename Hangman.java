@@ -431,6 +431,7 @@ public class Hangman
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         PrintWriter p = new PrintWriter(System.out,true);
+        obj.clearScreen();
         p.println("Lets play HANGMAN");
         p.println();
         p.println("Enter your choice according to the following options.\nNOTE: Words are related to the topics given below.\n\n1. Sports\n2. Movies\n3. Computer\n4. Food\n5. Countries");
@@ -455,6 +456,7 @@ public class Hangman
         String wordclue = bothwordandclue[1];
         int lengthofword = (int)(Math.round(((double)guessword.length()/2)));
         int checkguess = 0;
+        p.println("\nClue : "+wordclue +"\n");
         String a;
         String guesses[] = new String[50];
         StringBuffer guessit = new StringBuffer();
@@ -467,7 +469,7 @@ public class Hangman
             guessit.setCharAt(index, '|');
             index = guessword.indexOf("|", index+1);// Start searching for next "|" after this index
         }
-        p.println(guessit + "\t\t\t\t\t\t\t\t\t The letters you have entered so far");
+        p.println(guessit + "\t\t     The letters you have entered so far");
         do
         {
             p.println();
@@ -512,7 +514,7 @@ public class Hangman
                 }
                 else
                 {
-                    p.println("Wrong guess. You have " + counter + " incorrect guesses left\t\t\t\t\t\t\t\t\t The letters you have entered so far");
+                    p.println("Wrong guess. You have " + counter + " incorrect guesses left\t\t\t\t\t The letters you have entered so far");
                     p.println(guessit);
                 }
             }
